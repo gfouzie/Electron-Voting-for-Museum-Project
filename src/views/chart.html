@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="../public/main.css" type="text/css" />
     <title>Museum</title>
   </head>
+
   <body>
-    <h1>Organizer Page</h1>
-    <button onclick="resetVotes(MH,SS,RSA,ALL)">Reset Data</button>
+    <div>
+      <h1>Chart Here</h1>
+      <canvas id="doughnut-chart" width="800" height="450"></canvas>
+    </div>
+    <button><a href="index.html">Go to Home Page</a></button>
     <button><a href="voting.html">Go to Voting Page</a></button>
-    <button><a href="chart.html">Go to Chart Page</a></button>
-    <script src="../public/functions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="../public/chart.js"></script>
   </body>
 </html>
