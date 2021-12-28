@@ -5,13 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/main.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
     <title>Museum</title>
   </head>
   <body>
-    <h1>Organizer Page</h1>
-    <button onclick="resetVotes(MH,SS,RSA,ALL)">Reset Data</button>
-    <button><a href="voting.html">Go to Voting Page</a></button>
-    <button><a href="chart.html">Go to Chart Page</a></button>
-    <script src="../public/functions.js"></script>
+    <div class="main">
+      <h1>Organizer Page</h1>
+      <div class="nav-options">
+        <button class="btn linking-btn" onclick="resetVotes(MH,SS,RSA,ALL)">
+          Reset Data
+        </button>
+        <button class="btn linking-btn">
+          <a href="voting.html">Go to Voting Page</a>
+        </button>
+        <button class="btn linking-btn">
+          <a href="chart.html">Go to Chart Page</a>
+        </button>
+        <script src="../public/functions.js"></script>
+      </div>
+    </div>
   </body>
 </html>

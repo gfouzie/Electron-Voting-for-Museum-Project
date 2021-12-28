@@ -5,22 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../public/main.css" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
     <title>Museum</title>
   </head>
   <body>
-    <h1>Voting Page</h1>
-    <h4>Vote 1 for Menstrual Health (MH)</h4>
-    <h4>Vote 2 for Safer Sex (SS)</h4>
-    <h4>Vote 3 for Reassigning Sexual Attitudes (RSA)</h4>
-    <h4>Vote 4 for All of the Above (ALL)</h4>
+    <div class="content">
+      <h1 class="title">Voting Options</h1>
+      <div class="voting-descriptions">
+        <h4>Vote 1 for Menstrual Health (MH)</h4>
+        <h4>Vote 2 for Safer Sex (SS)</h4>
+        <h4>Vote 3 for Reassigning Sexual Attitudes (RSA)</h4>
+        <h4>Vote 4 for All of the Above (ALL)</h4>
+      </div>
+      <div class="voting-option">
+        <button class="btn voting-btn-1" onclick="vote1(MH,SS,RSA,ALL)">
+          1
+        </button>
+        <button class="btn voting-btn-2" onclick="vote2(MH,SS,RSA,ALL)">
+          2
+        </button>
+        <button class="btn voting-btn-3" onclick="vote3(MH,SS,RSA,ALL)">
+          3
+        </button>
+        <button class="btn voting-btn-4" onclick="vote4(MH,SS,RSA,ALL)">
+          4
+        </button>
+      </div>
+      <div class="redirects">
+        <button class="btn linking-btn">
+          <a href="chart.html">View Chart</a>
+        </button>
+        <button class="btn linking-btn">
+          <a href="index.html">Go to Home Page</a>
+        </button>
+      </div>
+    </div>
 
-    <button onclick="vote1(MH,SS,RSA,ALL)">1</button>
-    <button onclick="vote2(MH,SS,RSA,ALL)">2</button>
-    <button onclick="vote3(MH,SS,RSA,ALL)">3</button>
-    <button onclick="vote4(MH,SS,RSA,ALL)">4</button>
-    <br />
-    <button><a href="chart.html">Go to Chart Page</a></button>
-    <button><a href="index.html">Go to Home Page</a></button>
     <script src="../public/functions.js"></script>
   </body>
 </html>

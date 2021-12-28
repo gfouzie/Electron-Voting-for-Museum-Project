@@ -4,17 +4,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../public/main.css" type="text/css" />
     <title>Museum</title>
   </head>
 
   <body>
-    <div>
-      <h1>Chart Here</h1>
-      <canvas id="doughnut-chart" width="800" height="450"></canvas>
+    <button class="btn swap-btn" id="swapGraphBtn" onclick="swapGraph()">
+      View Bar Graph
+    </button>
+    <div id="doughnutDiv">
+      <canvas id="doughnut-chart" width="800" height="400"></canvas>
     </div>
-    <button><a href="index.html">Go to Home Page</a></button>
-    <button><a href="voting.html">Go to Voting Page</a></button>
+    <div id="barDiv">
+      <canvas id="bar-chart" width="800" height="400"></canvas>
+    </div>
+    <button class="btn linking-btn-chart">
+      <a href="index.html">Go to Home Page</a>
+    </button>
+    <button class="btn linking-btn-chart">
+      <a href="voting.html">Go to Voting Page</a>
+    </button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="../public/chart.js"></script>
   </body>
