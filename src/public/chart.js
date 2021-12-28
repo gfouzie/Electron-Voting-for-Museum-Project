@@ -25,13 +25,13 @@ window.onload = function () {
     data: {
       labels: [
         "Menstrual Health",
-        "Safe Sex",
+        "Safer Sex",
         "Reassigning Sexual Attitudes",
         " All",
       ],
       datasets: [
         {
-          backgroundColor: ["#B67CDF", "#FBE26F", "#7BDFB6", "#94DE7D"],
+          backgroundColor: ["#C97C5D", "#C89F96", "#B36A5E", "#E3BCA1"],
           data: [MH, SS, RSA, ALL],
         },
       ],
@@ -45,7 +45,7 @@ window.onload = function () {
       },
       title: {
         display: true,
-        text: "What Taught You the Most?",
+        text: "Which Section Was the Most Educational?",
         fontSize: 50,
         padding: 25,
       },
@@ -58,13 +58,13 @@ window.onload = function () {
     data: {
       labels: [
         "Menstrual Health",
-        "Safe Sex",
+        "Safer Sex",
         "Reassigning Sexual Attitudes",
         " All",
       ],
       datasets: [
         {
-          backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9"],
+          backgroundColor: ["#C97C5D", "#C89F96", "#B36A5E", "#E3BCA1"],
           data: [MH, SS, RSA, ALL],
         },
       ],
@@ -73,7 +73,7 @@ window.onload = function () {
       legend: { display: false },
       title: {
         display: true,
-        text: "What Taught You the Most?",
+        text: "Which Section Was the Most Educational?",
         fontSize: 50,
         padding: 25,
       },
