@@ -1,8 +1,9 @@
 {
   "name": "museum-voting",
+  "productName": "Museum Voting",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron src/index.js"
@@ -10,11 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^16.0.5"
+    "electron": "^16.0.5",
+    "electron-packager": "^15.4.0"
   },
   "dependencies": {
     "chartjs": "^0.3.24",
-    "electron-reload": "^2.0.0-alpha.1",
     "fs": "0.0.1-security"
   }
 }
