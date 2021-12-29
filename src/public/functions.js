@@ -1,13 +1,45 @@
 const fs = require("fs");
 const path = require("path");
 
-let data = fs.readFileSync(path.resolve(__dirname, "../public/data.json"));
+const appDataDirPath = getAppDataPath();
+// Create appDataDir if not exist
+if (!fs.existsSync(appDataDirPath)) {
+  fs.mkdirSync(appDataDirPath);
+}
+
+//create file of ot doesnt already exist
+let data = fs.readFileSync(
+  path.resolve(appDataDirPath, "../public/votingData.json")
+);
 let options = JSON.parse(data);
 
 let MH = options["menstrual_health"];
 let SS = options["safer_sex"];
 let RSA = options["reassigning_sexual_attitudes"];
 let ALL = options["all"];
+
+function getAppDataPath() {
+  switch (process.platform) {
+    case "darwin": {
+      return path.join(
+        process.env.HOME,
+        "Library",
+        "Application Support",
+        "Museum Voting"
+      );
+    }
+    case "win32": {
+      return path.join(process.env.APPDATA, "Museum Voting");
+    }
+    case "linux": {
+      return path.join(process.env.HOME, ".Museum Voting");
+    }
+    default: {
+      console.log("Unsupported platform!");
+      process.exit(1);
+    }
+  }
+}
 
 const saveData = (MH, SS, RSA, ALL) => {
   let options = {
@@ -16,8 +48,15 @@ const saveData = (MH, SS, RSA, ALL) => {
     reassigning_sexual_attitudes: RSA,
     all: ALL,
   };
+  const appDataDirPath = getAppDataPath();
+
+  // Create appDataDir if not exist
+  if (!fs.existsSync(appDataDirPath)) {
+    fs.mkdirSync(appDataDirPath);
+  }
+
   fs.writeFileSync(
-    path.resolve(__dirname, "../public/data.json"),
+    path.resolve(appDataDirPath, "../public/votingData.json"),
     JSON.stringify(options)
   );
 
@@ -27,21 +66,25 @@ const saveData = (MH, SS, RSA, ALL) => {
 const vote1 = (MH, SS, RSA, ALL) => {
   MH += 1;
   saveData(MH, SS, RSA, ALL);
+  window.location.reload();
 };
 
 const vote2 = (MH, SS, RSA, ALL) => {
   SS += 1;
   saveData(MH, SS, RSA, ALL);
+  window.location.reload();
 };
 
 const vote3 = (MH, SS, RSA, ALL) => {
   RSA += 1;
   saveData(MH, SS, RSA, ALL);
+  window.location.reload();
 };
 
 const vote4 = (MH, SS, RSA, ALL) => {
   ALL += 1;
   saveData(MH, SS, RSA, ALL);
+  window.location.reload();
 };
 
 const resetVotes = (MH, SS, RSA, ALL) => {
@@ -56,7 +99,7 @@ const resetVotes = (MH, SS, RSA, ALL) => {
     all: ALL,
   };
   fs.writeFileSync(
-    path.resolve(__dirname, "../public/data.json"),
+    path.resolve(appDataDirPath, "../public/votingData.json"),
     JSON.stringify(options)
   );
 };

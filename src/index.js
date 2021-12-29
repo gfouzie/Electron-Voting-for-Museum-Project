@@ -2,12 +2,26 @@ const { app, BrowserWindow } = require("electron");
 const url = require("url");
 const path = require("path");
 
-if (process.env.NODE_ENV != "production") {
-  require("electron-reload")(__dirname, {
-    electron: path.join(__dirname, "../node_modules", ".bin", "electron"),
+process.env.NODE_ENV = "production";
+
+// Add developer tools option if in dev
+if (process.env.NODE_ENV !== "production") {
+  mainMenuTemplate.push({
+    label: "Developer Tools",
+    submenu: [
+      {
+        role: "reload",
+      },
+      {
+        label: "Toggle DevTools",
+        accelerator: process.platform == "darwin" ? "Command+I" : "Ctrl+I",
+        click(item, focusedWindow) {
+          focusedWindow.toggleDevTools();
+        },
+      },
+    ],
   });
 }
-
 let mainWin;
 
 const createWindow = () => {

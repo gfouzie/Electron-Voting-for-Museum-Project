@@ -1,7 +1,40 @@
 const fs = require("fs");
 const path = require("path");
 
-let data = fs.readFileSync(path.resolve(__dirname, "../public/data.json"));
+const appDataDirPath = getAppDataPath();
+// Create appDataDir if not exist
+if (!fs.existsSync(appDataDirPath)) {
+  fs.mkdirSync(appDataDirPath);
+}
+
+//create file of ot doesnt already exist
+let data = fs.readFileSync(
+  path.resolve(appDataDirPath, "../public/votingData.json")
+);
+
+function getAppDataPath() {
+  switch (process.platform) {
+    case "darwin": {
+      return path.join(
+        process.env.HOME,
+        "Library",
+        "Application Support",
+        "Museum Voting"
+      );
+    }
+    case "win32": {
+      return path.join(process.env.APPDATA, "Museum Voting");
+    }
+    case "linux": {
+      return path.join(process.env.HOME, ".Museum Voting");
+    }
+    default: {
+      console.log("Unsupported platform!");
+      process.exit(1);
+    }
+  }
+}
+
 let options = JSON.parse(data);
 
 let MH = options["menstrual_health"];
